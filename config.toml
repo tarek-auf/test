@@ -171,8 +171,8 @@ disqusShortname = ""
     # You can add multiple emails, phone numbers, or addresses
     # by copying the corresponding map with frontmatter code.
     [[params.contact.email]]
-    title = "tauf.mfa2021@london.edu"
-    email = "example@domain.com"
+    title = "E-Mail"
+    email = "tauf.mfa2021@london.edu"
 
     [[params.contact.phone]]
     title = "Phone"
