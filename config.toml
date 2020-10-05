@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://tarek-auf.netlify.app"
 languageCode = "en-us"
-title = "Tarek's Portfolio"
+title = "Tarek's Data Analytics Portfolio"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -20,7 +20,7 @@ disqusShortname = ""
 
   # Provide your metadata here.
   name = "Tarek"
-  description = "Tarek's Portfolio"
+  description = "Here I will upload my work that I will do during my course in Data Analytics for Finance furing my time at LBS"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -38,7 +38,7 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = "Tarek"
-    subtitle = "By HTML5 Up"
+    #subtitle = "By HTML5 Up"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -52,12 +52,12 @@ disqusShortname = ""
       url = "projects"
 
     [[params.navigation.links]]
-      name = "Generic Blog"
+      name = "About"
       url = "blogs/ipsum"
 
-    [[params.navigation.links]]
-      name = "Elements"
-      url = "elements.html"
+    #[[params.navigation.links]]
+     # name = "Elements"
+      #url = "elements.html"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, my name is Tarek"
-    subtitle = "Please find here all my projects in R BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
+    #subtitle = "Please find here all my projects in R BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
     buttonText = "Get Started"
 
 
@@ -174,36 +174,36 @@ disqusShortname = ""
     title = "E-Mail"
     email = "tauf.mfa2021@london.edu"
 
-    [[params.contact.phone]]
-    title = "Phone"
-    phone = "(000) 000-0000 x1234"
+    #[[params.contact.phone]]
+    #title = "Phone"
+    #phone = "(000) 000-0000 x1234"
 
-    [[params.contact.address]]
-    title = "Address"
-    street = "Street"
-    city = "City, ST 00000"
-    country = "Country"
+    #[[params.contact.address]]
+    #title = "Address"
+    #street = "Street"
+    #city = "City, ST 00000"
+    #country = "Country"
 
   # Footer section
-  [params.footer]
-    enable = true
-    copyright = "Company Name"
+  #[params.footer]
+   # enable = true
+    #copyright = "Company Name"
 
     # Uses font awesome icons
-    [[params.footer.social]]
-      icon = "fa-twitter"
-      url= "https://www.twitter.com"
-      label = "Twitter"
+    #[[params.footer.social]]
+     # icon = "fa-twitter"
+      #url= "https://www.twitter.com"
+      #label = "Twitter"
 
-    [[params.footer.social]]
-      icon = "fa-facebook"
-      url= "https://www.facebook.com"
-      label = "Facebook"
+    #[[params.footer.social]]
+     # icon = "fa-facebook"
+      #url= "https://www.facebook.com"
+      #label = "Facebook"
 
-    [[params.footer.social]]
-      icon = "fa-instagram"
-      url= "https://www.instagram.com"
-      label = "Instagram"
+    #[[params.footer.social]]
+     # icon = "fa-instagram"
+      #url= "https://www.instagram.com"
+      #label = "Instagram"
     
     [[params.footer.social]]
       icon = "fa-github"
@@ -212,10 +212,10 @@ disqusShortname = ""
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "https://www.linkedin.com"
+      url= "https://www.linkedin.com/in/tarekauf/"
       label = "LinkedIn"
 
-    [[params.footer.quicklinks]]
-      text = "Design: "
-      url= "https://www.html5up.net"
-      alt = "HTML5 UP"
+  #  [[params.footer.quicklinks]]
+   #   text = "Design: "
+    #  url= "https://www.html5up.net"
+     # alt = "HTML5 UP"
