@@ -10,7 +10,6 @@ keywords: "cliamte change"
 slug: blog5
 title: Wheather Anomalies
 ---
-
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
