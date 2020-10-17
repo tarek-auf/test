@@ -1,0 +1,243 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-17"
+description: "Does The Risk-Reward Application work in Theory only?"
+draft: false
+#image: pic10.jpg
+keywords: "financial analysis"
+slug: blog6
+title: Risk-Reward Plots
+---
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(tidytext)
+library(rvest)    # scrape websites
+library(purrr)  
+library(lubridate) #to handle dates
+library(plyr)
+library(dplyr)
+```
+# Returns of financial stocks
+
+```{r load_nyse_data, message=FALSE, warning=FALSE}
+#loading the data
+nyse <- read_csv(here::here("data","nyse.csv"))
+
+glimpse(nyse)
+
+```
+
+Based on this dataset, create a table and a bar plot that shows the number of companies per sector, in descending order
+
+```{r companies_per_sector}
+companies_per_sector <- nyse %>% 
+                        dplyr::group_by(sector) %>% 
+                        dplyr::count(sort = TRUE) %>% 
+                        select(sector, number = n)
+companies_per_sector
+
+comp_per_sector_plot <- ggplot(companies_per_sector, 
+                               aes(y = reorder(sector, number), 
+                                   x = number,
+                                   fill = factor(sector)))+
+                        geom_bar(stat = "identity")+
+                        theme(axis.text.x=element_text(angle=0),
+                              legend.position = 'none') +
+                        labs(x = "Sector", 
+                             y = "Number of Companies", 
+                             title = "The Finance Sector dominates by far in the NYSE")
+
+comp_per_sector_plot
+
+```
+
+Next, let's choose the [Dow Jones Industrial Aveareg (DJIA)](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average) stocks and their ticker symbols and download some data. Besides the thirty stocks that make up the DJIA, we will also add `SPY` which is an SP500 ETF (Exchange Traded Fund).
+
+
+```{r, tickers_from_wikipedia}
+
+djia_url <- "https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average"
+
+#get tables that exist on URL
+tables <- djia_url %>% 
+          read_html() %>% 
+          html_nodes(css="table")
+
+# parse HTML tables into a dataframe called djia. 
+# Use purr::map() to create a list of all tables in URL
+djia <- map(tables, . %>% 
+            html_table(fill=TRUE)%>% 
+            clean_names())
+
+
+# constituents
+table1 <- djia[[2]] %>% # the second table on the page contains the ticker symbols
+          mutate(date_added = ymd(date_added),
+         
+         # if a stock is listed on NYSE, its symbol is, e.g., NYSE: MMM
+         # We will get prices from yahoo finance which requires just the ticker
+         
+         # if symbol contains "NYSE*", the * being a wildcard
+         # then we just drop the first 6 characters in that string
+         ticker = ifelse(str_detect(symbol, "NYSE*"),
+                         str_sub(symbol,7,11),
+                         symbol))
+
+# we need a vector of strings with just the 30 tickers + SPY
+tickers <- table1 %>% 
+           select(ticker) %>% 
+           pull() %>% # pull() gets them as a sting of characters
+           c("SPY") # and lets us add SPY, the SP500 ETF
+
+```
+
+
+
+
+```{r get_price_data, message=FALSE, warning=FALSE, cache=TRUE}
+# Notice the cache = TRUE argument in the chunk options. Because getting data is time consuming, # cache=TRUE means that once it downloads data, the chunk will not run again next time you knit your Rmd
+
+myStocks <- tickers %>% 
+            tq_get(get  = "stock.prices",
+                   from = "2000-01-01",
+                   to   = "2020-08-31") %>%
+            group_by(symbol) 
+
+# examine the structure of the resulting data frame
+glimpse(myStocks) 
+
+```
+
+Financial performance analysis depend on returns; If I buy a stock today for 100 and I sell it tomorrow for 101.75, my one-day return, assuming no transaction costs, is 1.75%. So given the adjusted closing prices, our first step is to calculate daily and monthly returns.
+
+```{r calculate_returns, message=FALSE, warning=FALSE, cache=TRUE}
+#calculate daily returns
+myStocks_returns_daily <- myStocks %>%
+                          tq_transmute(select     = adjusted, 
+                                       mutate_fun = periodReturn, 
+                                       period     = "daily", 
+                                       type       = "log",
+                                       col_rename = "daily_returns",
+                                       cols = c(nested.col))  
+
+#calculate monthly  returns
+myStocks_returns_monthly <- myStocks %>%
+                            tq_transmute(select     = adjusted, 
+                                         mutate_fun = periodReturn, 
+                                         period     = "monthly", 
+                                         type       = "arithmetic",
+                                         col_rename = "monthly_returns",
+                                         cols = c(nested.col)) 
+
+#calculate yearly returns
+myStocks_returns_annual_log <- myStocks %>%
+                               group_by(symbol) %>%
+                               tq_transmute(select     = adjusted, 
+                                            mutate_fun = periodReturn, 
+                                            period     = "yearly", 
+                                            type       = "log",
+                                            col_rename = "yearly_returns",
+                                            cols = c(nested.col))
+```
+
+Create a dataframe and assign it to a new object, where you summarise monthly returns since 2017-01-01 for each of the stocks and `SPY`; min, max, median, mean, SD.
+
+```{r summarise_monthly_returns}
+
+returns2017 <- myStocks_returns_monthly %>% 
+               filter(date>="2017-01-01") %>% 
+               dplyr::summarise(min = min(monthly_returns), #
+                                max = max(monthly_returns), 
+                                mean = mean(monthly_returns), 
+                                median = median(monthly_returns), 
+                                sd = sd(monthly_returns)) %>% 
+               arrange(desc(median))
+  
+returns2017
+
+returns2000 <- myStocks_returns_monthly %>% 
+               dplyr::summarise(min = min(monthly_returns), #
+                                max = max(monthly_returns), 
+                                mean = mean(monthly_returns), 
+                                median = median(monthly_returns), 
+                                sd = sd(monthly_returns)) %>% 
+               arrange(desc(median))
+
+returns2000
+
+```
+
+
+Plot a density plot, using `geom_density()`, for each of the stocks
+
+```{r density_monthly_returns, fig.height=8, fig.width=12}
+
+ggplot(myStocks_returns_monthly, 
+       aes(x = monthly_returns))+
+  geom_density()+
+  facet_wrap( ~symbol, scales = "free_y")+
+  theme_bw()
+
+```
+
+What can you infer from this plot? Which stock is the riskiest? The least risky? 
+
+The riskiest stocks are those where we have huge volatility, which implies a round-shaped curve. The Steeper the increase and decrease of the curve, the less risky the stock, as the monthly return of the stock is quite constant. In our opinion *APPL* is the riskiest, but this does not come as surprise if we look at its risk reward (highest risk, highest median reward in the years 2017-2020). However, the DOW is the riskiest and least risky is *SPY*. 
+
+Finally, produce a plot that shows the expected monthly return (mean) of a stock on the Y axis and the risk (standard deviation) in the X-axis. Please use `ggrepel::geom_text_repel()` to label each stock with its ticker symbol
+
+```{r risk_return_plot}
+
+p3 <- ggplot(returns2017, aes(x=sd, y=mean, label=symbol))+
+      geom_point(color="red")+
+      labs(title="Risk-Reward Plot 2017-2020", y="Expected Monthly Return", x="Risk" )+
+      ggrepel::geom_text_repel()+
+      geom_smooth(method=lm)
+  
+p3
+
+p4 <- ggplot(returns2000, aes(x=sd, y=mean, label=symbol))+
+      geom_point(color="blue")+
+      labs(title="Risk-Reward Plot 2000-2020", y="Expected Monthly Return", x="Risk" )+
+      ggrepel::geom_text_repel()+
+      geom_smooth(method=lm)
+      NULL
+p4
+
+
+
+
+```
+
+What can you infer from this plot? Are there any stocks which, while being riskier, do not have a higher expected return?
+
+Risk Reward Graph: 
+We can see from the graph that there is an overall trend for higher returns having higher risk. However, we shall not forget that we are looking here at Risk Rewards for a period of only 3 years, which in a stock life is neglectable. In the second chunck of the code we produce the same graph but with more data. Here our pricing data starts in 2000 (in case a stock was introduced later to the DOW Jones Industrial Average, from the beginning of the stock's lifecycle). Here we can more clearly see our reasoning. The fact that the *DOW* is "high" risk, is because it is not an actual stock, but rather the index, that is comprised of all the 30 stocks in the index, and as we have outliers in our 30 companies (some that produce higher returns with lower risk, and other that are considered high risk but only have small returns) we arrive at the conclusion that is the reason why the *DOW* is so much to the right.
