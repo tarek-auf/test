@@ -1,14 +1,13 @@
 ---
-categories:
-- ""
-- ""
-date: "2020-10-17"
-description: "Does The Risk-Reward Application work in Theory only?"
-draft: false
-#image: pic10.jpg
-keywords: "financial analysis"
+title: "Risk-Reward Plots"
+date: '2020-10-17'
+description: Does The Risk-Reward Application work in Theory only?
+draft: no
+keywords: financial analysis
 slug: blog6
-title: Risk-Reward Plots
+categories:
+- ''
+- ''
 ---
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
