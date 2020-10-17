@@ -92,7 +92,7 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Wheather Anomalies"
+      title = "Weather Anomalies"
       subtitle = "Is climate change a myth?"
       image = "pic01.jpg"
       url = "blogs/blog5"
