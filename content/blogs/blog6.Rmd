@@ -1,13 +1,22 @@
 ---
 title: "Risk-Reward Plots"
+author: "Tark Auf"
 date: '2020-10-17'
 description: Does The Risk-Reward Application work in Theory only?
 draft: no
-keywords: financial analysis
+keywords: "financial analysis"
 slug: blog6
 categories:
 - ''
 - ''
+output:
+  html_document:
+    code_folding: show
+    highlight: zenburn
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_float: yes
 ---
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
