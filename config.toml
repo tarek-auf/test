@@ -49,7 +49,7 @@ disqusShortname = ""
 
     [[params.navigation.links]]
       name = "Blog"
-      url = "projects"
+      url = "blog"
 
     [[params.navigation.links]]
       name = "About"
@@ -92,7 +92,7 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Wheather Anomalies"
+      title = "Weather Anomalies"
       subtitle = "Is climate change a myth?"
       image = "pic01.jpg"
       url = "blogs/blog5"
@@ -100,7 +100,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Risk-Reward Plots"
       subtitle = "Apple really an overkill?"
-      image = "pic02.jpg"
+      #image = "pic02.jpg"
       url = "blogs/blog6"
 
     [[params.tiles.showcase]]

@@ -8,7 +8,7 @@ draft: false
 image: pic10.jpg
 keywords: "cliamte change"
 slug: blog5
-title: Wheather Anomalies
+title: Weather Anomalies
 ---
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -361,6 +361,8 @@ visualize(boot_med_delta) +
   shade_ci(endpoints = percentile_med_ci,fill = "khaki")+
   geom_vline(xintercept = percentile_med_ci$lower_ci, colour = "red")+
   geom_vline(xintercept = percentile_med_ci$upper_ci, colour = "red")
+
+blogdown::serve_site()
 
 ```
 
