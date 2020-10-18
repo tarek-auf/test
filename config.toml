@@ -101,7 +101,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Risk-Reward Plots"
       subtitle = "Apple really an overkill?"
-      #image = "pic02.jpg"
+      image = "pic02.jpg"
       url = "blogs/blog6"
 
     [[params.tiles.showcase]]
