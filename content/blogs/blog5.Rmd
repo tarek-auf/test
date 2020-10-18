@@ -2,7 +2,7 @@
 categories:
 - ""
 - ""
-date: "2020-10-05"
+date: "2020-10-01"
 description: "Are we seeing an increase in weather anomalies"
 draft: false
 image: pic10.jpg
