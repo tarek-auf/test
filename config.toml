@@ -38,7 +38,7 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = "Tarek"
-    #subtitle = "By HTML5 Up"
+    subtitle = "Portfolio Website"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -48,12 +48,12 @@ disqusShortname = ""
       url = "#"
 
     [[params.navigation.links]]
-      name = "Blog"
+      name = "Blogs"
       url = "blog"
 
-    [[params.navigation.links]]
-      name = "About"
-      url = "blogs/ipsum"
+   # [[params.navigation.links]]
+    #  name = "Generic Blog"
+     # url = "blogs/ipsum"
 
     #[[params.navigation.links]]
      # name = "Elements"
@@ -68,13 +68,13 @@ disqusShortname = ""
 
     # Button Style 1
     [[params.navigation.button1]]
-      name = "Get Started"
+      name = "My Projects"
       url = "blogs"
 
     # Button Style 2
-    [[params.navigation.button2]]
-      name = "Log In"
-      url = "#"
+   # [[params.navigation.button2]]
+    #  name = "Log In"
+     # url = "#"
 
 
   # Banner section
@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, my name is Tarek"
-    #subtitle = "Please find here all my projects in R BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
+    subtitle = "My portfolio website \n RELEASED UNDER THE CREATIVE COMMONS."
     buttonText = "Get Started"
 
 
@@ -97,6 +97,7 @@ disqusShortname = ""
       image = "pic01.jpg"
       url = "blogs/blog5"
 
+    
     [[params.tiles.showcase]]
       title = "Risk-Reward Plots"
       subtitle = "Apple really an overkill?"
@@ -115,17 +116,17 @@ disqusShortname = ""
       image = "pic04.jpg"
       url = "blogs/ipsum"
 
-    [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
-      url = "blogs/ipsum"
+  #  [[params.tiles.showcase]]
+   #   title = "Consequat"
+    #  subtitle = "Ipsum Dolor Sit Amet"
+     # image = "pic05.jpg"
+      #url = "blogs/ipsum"
 
-    [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
-      url = "blogs/ipsum"
+#    [[params.tiles.showcase]]
+ #     title = "Etiam"
+  #    subtitle = "Feugiat Amet Tempus"
+   #   image = "pic06.jpg"
+    #  url = "blogs/ipsum"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -136,12 +137,16 @@ disqusShortname = ""
     # To add more blogs just copy and paste the code.
 
   # Section Type Two
-  [params.two]
-    enable = true
-    title = "About"
-    subtitle = """This Website will showcase a subset of the projects  I did while attending the Data Analytics for Fiannce class at LBS."""
-    buttonText = "Get Started"
-    url = "blogs"
+#  [params.two]
+#    enable = true
+#    title = "Massa libero"
+#    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
+#    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
+#    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
+#    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
+#    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
+#    buttonText = "Get Started"
+#    url = "blogs"
 
 
   # Contact section
@@ -186,15 +191,15 @@ disqusShortname = ""
     copyright = "Tarek Auf"
 
     # Uses font awesome icons
-    [params.footer.social]]
-      icon = "fa-twitter"
-      url= "https://www.twitter.com/trance-worldwide"
-      label = "Twitter"
+   # [params.footer.social]]
+    #  icon = "fa-twitter"
+     # url= "https://www.twitter.com/trance-worldwide"
+      #label = "Twitter"
 
-    [[params.footer.social]]
-      icon = "fa-facebook"
-      url= "https://www.facebook.com/tarekauf1"
-      label = "Facebook"
+    #[[params.footer.social]]
+     # icon = "fa-facebook"
+      #url= "https://www.facebook.com/tarekauf1"
+      #label = "Facebook"
 
     [[params.footer.social]]
       icon = "fa-instagram"
