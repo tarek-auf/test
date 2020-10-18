@@ -1,11 +1,11 @@
 ---
-title: "Risk-Reward Plots"
+title: "Yield Curve Inversion"
 author: "Tark Auf"
 date: '2020-10-17'
-description: Does The Risk-Reward Application work in Theory only?
 draft: no
 keywords: "financial analysis"
-slug: blog6
+image: pic03.jpg
+slug: blog7
 categories:
 - ''
 - ''
