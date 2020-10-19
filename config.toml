@@ -111,10 +111,10 @@ disqusShortname = ""
       url = "blogs/blog7"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
+      title = "AirBnB Hong Kong Analysis"
+      subtitle = "Understanding price drivers for AirBnB's in Hong Kong"
       image = "pic04.jpg"
-      url = "blogs/ipsum"
+      url = "blogs/blog8"
 
   #  [[params.tiles.showcase]]
    #   title = "Consequat"

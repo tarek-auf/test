@@ -1,0 +1,10 @@
+---
+title: "AirBnB Hong Kong Analysis"
+author: "Tark Auf"
+date: '2020-10-19'
+draft: no
+keywords: "analysis"
+image: pic04.jpg
+slug: blog8
+---
+
