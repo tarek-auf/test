@@ -1,7 +1,8 @@
 ---
 title: "Risk-Reward Plots"
 author: "Tark Auf"
-date: '2020-10-17'
+date: '2020-10-10'
+image: "pic02.jpg"
 description: Does The Risk-Reward Application work in Theory only?
 draft: no
 keywords: "financial analysis"

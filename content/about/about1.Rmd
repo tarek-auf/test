@@ -1,0 +1,36 @@
+---
+title: "About Me"
+author: "Tark Auf"
+date: '2020-10-10'
+image: "pic02.jpg"
+description:
+draft: no
+keywords:
+slug: about1
+categories:
+- ''
+- ''
+output:
+  html_document:
+    code_folding: show
+    highlight: zenburn
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+# Autobiography of *Tarek Auf*
+
+Tarek was born on **02. April 1997 in Vienna** to Syrian Parents. In 2010 his family decided to show him his *cultural heritage* and hence they moved to Homs, his parents' hometown. Due to the demonstrations and unstable situation, they decided to comeback in 2011. 
+
+During his *economcis studies* at the *Vienna University of Economics and Business*, Tarek was lucky enough to experience his exchange semester in Hong Kong, before the stability of the city declined rapidly in 2019. Moreover, Tarek had the opportunity to write his bachelor thesis with [**INTLFCStone**](https://www.stonex.com/) in Dublin (a Fortune 500 company that offers hedging/clearing/payment/FX services) titled *Evaluating Forecasts of Feed Barley FOB Price using Vector Autoregressions*.
+
+### Internships that Tarek did prior to coming to LBS
+
+* [Deutsche Bank](https://www.db.com/) (Frankfurt, 2018) 
+* [KPMG - ManagementConsulting](https://home.kpmg/at/de/home/services/advisory/management-consulting.html) (Vienna, 2019)
+* [Bendura Bank AG](https://www.bendura.li/) (Liechtenstein, 2019)
+* [KPMG - Deal Advisory/Corporate Finance](https://home.kpmg/at/de/home/services/advisory/deal-advisory/fund/structured-finance.html) (Vienna, 2019)
+* BAGS Grain Handels AG (MENA, 2020)

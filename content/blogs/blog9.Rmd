@@ -2,6 +2,7 @@
 title: "Linear Regression and the Capital Asset Pricing Model (CAPM)"
 author: "Tark Auf"
 date: '2020-10-19'
+image: "pic05.jpg"
 draft: no
 keywords:
 image: pic05.jpg
