@@ -2,7 +2,7 @@
 title: "About Me"
 author: "Tark Auf"
 date: '2020-10-10'
-image: "pic02.jpg"
+image: "Tarek.jpg"
 description:
 draft: no
 keywords:
