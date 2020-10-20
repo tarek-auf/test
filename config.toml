@@ -115,6 +115,12 @@ disqusShortname = ""
       subtitle = "Understanding price drivers for AirBnB's in Hong Kong"
       image = "pic04.jpg"
       url = "blogs/blog8"
+      
+       [[params.tiles.showcase]]
+      title = "Linear Regression and the Capital Asset Pricing Model (CAPM)"
+      subtitle = "Using R for Finance Stuff"
+      image = "pic05.jpg"
+      url = "blogs/blog9"
 
   #  [[params.tiles.showcase]]
    #   title = "Consequat"
