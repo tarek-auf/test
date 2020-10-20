@@ -128,6 +128,12 @@ disqusShortname = ""
       image = "pic11.jpg"
       url = "blogs/Final assignement - Group 28 - Report.pdf"
       
+    [[params.tiles.showcase]]
+      title = "Evaluating forecasts of Feed Barley Hamburg FOB Prices using Vector Autoregression∗"
+      subtitle = "Bachelor Thesis"
+      image = "pic12.jpg"
+      url = "blogs/Bachelor_Thesis_Auf.pdf"
+      
      [[params.tiles.showcase]]
       title = "About Me"
       subtitle = "Who is Tarek"
