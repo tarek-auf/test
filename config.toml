@@ -122,6 +122,12 @@ disqusShortname = ""
       image = "pic05.jpg"
       url = "blogs/blog9"
       
+    [[params.tiles.showcase]]
+      title = "Forecasting EUR/USD returns with ARIMA-GARCH model"
+      subtitle = "Active trading to outperform the buy-and-hold strategy"
+      image = "pic11.jpg"
+      url = "blogs/Final assignement - Group 28 - Report.pdf"
+      
      [[params.tiles.showcase]]
       title = "About Me"
       subtitle = "Who is Tarek"
