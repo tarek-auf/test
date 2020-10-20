@@ -9,7 +9,7 @@ slug: blog8
 ---
 
 
-```{r, setup, echo=FALSE, eval=FALSE}
+```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
   warning = FALSE, 
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r load-libraries, echo=FALSE}
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)
@@ -46,7 +46,7 @@ library(vroom)
 ```
 
 
-```{r data_upload, tidy=TRUE}
+```{r data_upload, tidy=TRUE, message=FALSE, warning=FALSE}
 
 
 #loading data
